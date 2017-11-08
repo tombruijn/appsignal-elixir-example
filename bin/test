@@ -1,0 +1,16 @@
+#!/bin/bash
+
+docker build -f Dockerfile -t tom-alpine-elixir-test:local .
+
+docker run \
+  --volume "$(pwd)":/app:delegated \
+  --workdir /app \
+  --env "TZ=/usr/share/zoneinfo/Europe/Amsterdam" \
+  --env "MIX_ENV=prod" \
+  --env "APPSIGNAL_PUSH_API_KEY=YOUR_PUSH_API_KEY" \
+  --interactive \
+  --tty \
+  --rm \
+  --shm-size="256M" \
+  tom-alpine-elixir-test:local \
+  bin/_test

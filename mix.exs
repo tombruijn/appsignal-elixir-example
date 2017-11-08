@@ -4,10 +4,9 @@ defmodule AppsignalElixirExample.Mixfile do
   def project do
     [app: :appsignal_elixir_example,
      version: "0.1.0",
-     elixir: "~> 1.3-rc",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
@@ -27,6 +26,6 @@ defmodule AppsignalElixirExample.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:appsignal, "~> 0.0"}]
+    [{:appsignal, "~> 1.4"}]
   end
 end

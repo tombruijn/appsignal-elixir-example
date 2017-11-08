@@ -1,0 +1,8 @@
+#!/bin/ash
+
+set -eu
+
+mix deps.get
+mix compile
+mix appsignal.demo
+ash
